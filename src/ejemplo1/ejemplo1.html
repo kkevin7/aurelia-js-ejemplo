@@ -1,0 +1,11 @@
+<template>
+  <h1>${message}</h1>
+  <ul>
+    <li repeat.for="todo of todoList">
+      <input type="checkbox" checked.bind="todo.done">
+      <span css="text-decoration: ${todo.done ? 'line-through' : 'none'}">${todo.description} = ${todo.done}</span>
+      <button click.delegate="removeItem(todo)">Eliminar</button>
+    </li>
+    <input type="text" value.bind="newItem" /><button click.delegate="agregarLista()">Add</button>
+  </ul>
+</template>
