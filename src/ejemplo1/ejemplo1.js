@@ -1,7 +1,7 @@
-import {Todo} from './resources/Todo';
+import {Todo} from './todo';
 
 export class Ejemplo1 {
-  message = 'Hello Kevin!';
+  message = 'Agrega al a la lista!';
 
   constructor(){
     this.todo = new Todo('Limpiar la casa');

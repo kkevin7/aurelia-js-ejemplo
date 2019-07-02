@@ -1,8 +1,9 @@
 <template>
   <p>El magico gonzales</p>
   <ul>
-    <li><a href="#/">Home</a></li>
-    <li><a href="#/ejemplo1">Ejemplo1</a></li>
+    <li><a route-href="home">Home</a></li>
+    <li><a route-href="ejemplo1">Ejemplo1</a></li>
+    <li><a route-href="route: post; params.bind: {palabra: 'Puedes enviar parametros intenta'}">Post</a></li>
   </ul>
   <router-view></router-view>
 </template>
