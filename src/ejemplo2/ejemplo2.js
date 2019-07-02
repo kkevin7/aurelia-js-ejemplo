@@ -1,8 +1,8 @@
-import {Inject} from 'aurelia-framework';
+import {inject} from 'aurelia-framework';
 import moment from 'moment';
 import {HttpClient} from 'aurelia-fetch-client';
  
-@Inject(HttpClient)
+@inject(HttpClient)
 export class Ejemplo2{
     constructor(httpClient){
         this.httpClient = new HttpClient();
