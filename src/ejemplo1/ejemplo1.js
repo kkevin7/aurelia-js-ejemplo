@@ -1,5 +1,6 @@
 import {Todo} from './todo';
 
+@inject(Todo)
 export class Ejemplo1 {
   message = 'Agrega al a la lista!';
 

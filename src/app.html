@@ -1,9 +1,42 @@
 <template>
-  <p>El magico gonzales</p>
-  <ul>
-    <li><a route-href="home">Home</a></li>
-    <li><a route-href="ejemplo1">Ejemplo1</a></li>
-    <li><a route-href="route: post; params.bind: {palabra: 'Puedes enviar parametros intenta'}">Post</a></li>
-  </ul>
-  <router-view></router-view>
+  <nav class="navbar navbar-expand-lg navbar-dark "
+    style="background: linear-gradient(135deg, #6d50a2 0%, #ed2b88 100%);">
+    <a class="navbar-brand" href="#">AURELIA JS ;) </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" route-href="home">Home </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" route-href="ejemplo1">Ejemplo1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" route-href="ejemplo2">Ejemplo2</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+            route-href="route: post; params.bind: {palabra: 'Puedes enviar parametros intenta'}">Post</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            lista de prueba
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" route-href="ejemplo1">Ejemplo1</a>
+            <a class="dropdown-item" route-href="ejemplo1">Ejemplo1</a>
+            <a class="dropdown-item" route-href="ejemplo1">Ejemplo1</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <router-view></router-view>
+  </div>
 </template>
