@@ -12,8 +12,8 @@ export class API extends ConfigureApi{
       super(httpClient);
     }
 
-    getAll() {
-        return this.httpClient.fetch("/libro/")
+    async getAll() {
+        return await this.httpClient.fetch("/libro/")
           .then(response => response.json())
           .then(jsonData =>  { return jsonData});
       }

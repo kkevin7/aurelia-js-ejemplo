@@ -3,12 +3,19 @@ import {API} from '../common/services/api';
 import {HttpClient, json} from 'aurelia-fetch-client';
 
 let httpClient = new HttpClient();
+var api = new API(httpClient);
 
-@inject(API)
+@inject(HttpClient, API)
 export class libro{
+    message = "API de libros";
 
     constructor(){
-        var api = new API(httpClient);
-        console.log(api.getAll());
+         api.getAll()
+         .then(data => {
+            this.arreglo = data;
+         }).catch(error => {
+             this.error = error.message;
+         });
     }
+
 }

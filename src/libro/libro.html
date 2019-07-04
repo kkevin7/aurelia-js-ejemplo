@@ -1,4 +1,26 @@
 <template>
-    <p>Esta funcionado la vista</p>
-${descripcion}
+    <h2 class="text-center">${message}</h2>
+
+    <table class="table table-sm table-bordered table-striped ">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Titulo</th>
+                <th>Autor</th>
+                <th>Categoria</th>
+                <th>Estado</th>
+                <th colspan="2">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr repeat.for="valor of arreglo">
+                <td >${valor.id_Libro}</td>
+                <td >${valor.titulo}</td>
+                <td >${valor.autor}</td>
+                <td >${valor.categoria}</td>
+                <td >${valor.estado}</td>
+                <td><button class="btn btn-danger">Eliminar</button></td>
+            </tr>
+        </tbody>
+    </table>
 </template>

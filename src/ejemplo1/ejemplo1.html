@@ -6,6 +6,7 @@
       <span css="text-decoration: ${todo.done ? 'line-through' : 'none'}">${todo.description} = ${todo.done}</span>
       <button click.delegate="removeItem(todo)">Eliminar</button>
     </li>
-    <input type="text" value.bind="newItem" /><button click.delegate="agregarLista()">Add</button>
+    <input type="text" value.bind="newItem" />
+    <button click.delegate="agregarLista()">Add</button>
   </ul>
 </template>
