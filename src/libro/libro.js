@@ -1,11 +1,14 @@
 import {inject} from 'aurelia-framework';
-import {API2} from '../common/services/api2';
+import {API} from '../common/services/api';
+import {HttpClient, json} from 'aurelia-fetch-client';
 
-@inject(API2)
+let httpClient = new HttpClient();
+
+@inject(API)
 export class libro{
 
     constructor(){
-        var api = new API2();
-        api.getData();
+        var api = new API(httpClient);
+        console.log(api.getAll());
     }
 }
