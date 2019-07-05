@@ -11,20 +11,39 @@ export class API extends ConfigureApi {
   }
 
   async getAll() {
-    return await this.httpClient.fetch("libro/")
+    return await this.httpClient.fetch("libro/findAll")
       .then(response => response.json())
       .then(jsonData => { return jsonData });
   }
 
   create(datos) {
+    console.log(json(datos));
+    this.httpClient = new HttpClient();
     this.httpClient.fetch('libro/create', {
-      method: "POST",
-      body: JSON.stringify(datos)
+        method: 'post',
+        body: json(datos)
     })
-      .then(response => response.json())
       .then(data => {
         console.log(data);
+      }).catch(error => {
+        alert('Error al guardar el registro! == '+error);
       });
+  }
+
+  createAsync(datos){
+    (async () => {
+      const rawResponse = await fetch('http://localhost:80/codeigniter_rest/rest/libro/create', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(datos)
+      });
+      const content = await rawResponse.json();
+    
+      console.log(content);
+    })();
   }
 
   update(datos) {
@@ -39,7 +58,7 @@ export class API extends ConfigureApi {
   }
 
   delete(id) {
-    this.httpClient.fetch('libro/delete/'+id, {
+    this.httpClient.fetch('libro/delete/' + id, {
       method: "DELETE"
     })
       .then(response => response.json())

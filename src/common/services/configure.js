@@ -12,7 +12,7 @@ export class ConfigureApi {
         .withBaseUrl('http://localhost:80/codeigniter_rest/rest/')
         .withDefaults({
           headers: {
-            'Accept': 'application/json'
+            'Accept': 'application/json',
           }
         });
     });
