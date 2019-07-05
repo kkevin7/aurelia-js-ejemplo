@@ -1,0 +1,13 @@
+body{
+  background: #D5D8DC;
+}
+
+.contenido{
+  background: #fefefe;
+  padding: 2%;
+}
+
+.div-center{
+  margin: 0 auto;
+  width: 450px;
+}

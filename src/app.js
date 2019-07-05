@@ -1,4 +1,5 @@
 import { PLATFORM } from "aurelia-framework";
+import './assets/css/app.css';
 
 export class App {
   configureRouter(config, router) {
