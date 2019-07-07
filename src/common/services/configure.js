@@ -5,17 +5,17 @@ import { HttpClient, json } from 'aurelia-fetch-client';
 export class ConfigureApi {
 
   constructor(httpClient) {
-    this.httpClient = httpClient;
-    this.httpClient.configure(config => {
+    httpClient.configure(config => {
       config
         .useStandardConfiguration()
-        .withBaseUrl('http://localhost:80/codeigniter_rest/rest/')
+        .withBaseUrl('http://localhost:80/ci_rest_lib/')
         .withDefaults({
           headers: {
             'Accept': 'application/json',
           }
-        });
+        })
     });
+    this.httpClient = httpClient;
   }
 
 }

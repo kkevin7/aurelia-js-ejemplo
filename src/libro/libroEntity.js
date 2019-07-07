@@ -1,6 +1,6 @@
 export class LibroEntity{
-    constructor(titulo, autor, categoria, genero, estado){
-        // this.id_Libro = id_Libro;
+    constructor(id_Libro, titulo, autor, categoria, genero, estado){
+        this.id_Libro = id_Libro;
         this.titulo = titulo;
         this.autor = autor;
         this.categoria = categoria;

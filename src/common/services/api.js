@@ -3,7 +3,6 @@ import { HttpClient, json } from 'aurelia-fetch-client';
 import { ConfigureApi } from './configure';
 
 @inject(HttpClient)
-@inject(ConfigureApi)
 export class API extends ConfigureApi {
 
   constructor(httpClient) {
@@ -11,16 +10,14 @@ export class API extends ConfigureApi {
   }
 
   async getAll() {
-    return await this.httpClient.fetch("libro/findAll")
+    return await this.httpClient.fetch("libro")
       .then(response => response.json())
       .then(jsonData => { return jsonData });
   }
 
-  create(datos) {
-    console.log(json(datos));
-    this.httpClient = new HttpClient();
-    this.httpClient.fetch('libro/create', {
-        method: 'post',
+  async create(datos) {
+    const response = await this.httpClient.fetch('libro', {
+        method: 'POST',
         body: json(datos)
     })
       .then(data => {
@@ -30,26 +27,27 @@ export class API extends ConfigureApi {
       });
   }
 
-  createAsync(datos){
-    (async () => {
-      const rawResponse = await fetch('http://localhost:80/codeigniter_rest/rest/libro/create', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(datos)
-      });
-      const content = await rawResponse.json();
+  // createAsync(datos){
+  //   (async () => {
+  //     const rawResponse = await fetch('http://localhost:80/codeigniter_rest/rest/libro/create', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Accept': 'application/json',
+  //         'Content-Type': 'application/json'
+  //       },
+  //       body: JSON.stringify(datos)
+  //     });
+  //     const content = await rawResponse.json();
     
-      console.log(content);
-    })();
-  }
+  //     console.log(content);
+  //   })();
+  // }
 
-  update(datos) {
-    this.httpClient.fetch('libro/update', {
+  async update(datos) {
+    console.log(datos);
+    const response = await this.httpClient.fetch('libro', {
       method: "PUT",
-      body: JSON.stringify(datos)
+      body: json(datos)
     })
       .then(response => response.json())
       .then(data => {
@@ -57,8 +55,8 @@ export class API extends ConfigureApi {
       });
   }
 
-  delete(id) {
-    this.httpClient.fetch('libro/delete/' + id, {
+  async delete(id) {
+    const response = await this.httpClient.fetch('libro/' + id, {
       method: "DELETE"
     })
       .then(response => response.json())
