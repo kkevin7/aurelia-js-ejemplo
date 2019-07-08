@@ -44,10 +44,9 @@ export class libro {
   }
 
   eliminarDatos(entity) {
-    // this.api.delete(entity.id_Libro).then(respuesta => {
-    //   this.listaLibros.splice(this.listaLibros.indexOf(entity), 1)
-    // });
-    
+    this.api.delete(entity.id_Libro).then(respuesta => {
+      this.listaLibros.splice(this.listaLibros.indexOf(entity), 1)
+    });
   }
 
   mostrarForm(entity){

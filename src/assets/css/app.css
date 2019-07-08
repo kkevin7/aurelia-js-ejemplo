@@ -33,6 +33,15 @@ ul {
   width: 75%;
 }
 
+.logo-nonfound {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+
 .link{
+  margin: 0 auto; 
   text-align: center;
 }
