@@ -5,8 +5,8 @@ import {Tarea} from './tarea';
 export class Ejemplo1 {
   message = 'Lista de Tareas!';
 
-  constructor(){
-    this.tarea = new Tarea('Limpiar la casa');
+  constructor(tarea){
+    this.tarea = tarea;
     this.tareaList = [];
     this.tareaList.push(new Tarea('Lavar los trastes'));
     this.tareaList.push(new Tarea('Sacar al perro'));

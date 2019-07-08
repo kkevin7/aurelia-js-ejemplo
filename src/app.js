@@ -3,8 +3,7 @@ import './assets/css/app.css';
 
 export class App {
   configureRouter(config, router) {
-    config.title = 'Aurelia Router';
-    config.options.pushState = true;
+    config.title = 'Aurelia Ejemplo';
 
     const handleUnknownRoutes = (instruction) => {
       return { route: 'error404', moduleId: PLATFORM.moduleName('errores/error404') };

@@ -1,3 +1,7 @@
-export class Index{
 
+export class Index{
+  message= "AURELIA JS";
+
+  constructor(){
+  }
 }
