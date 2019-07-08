@@ -4,17 +4,16 @@ import { API } from '../common/services/api';
 import { HttpClient, json } from 'aurelia-fetch-client';
 import { LibroEntity } from './libroEntity';
 
-
 @inject(Router, HttpClient, API, LibroEntity)
 export class libro {
   message = "API de libros";
-  listaLibros;
-
+  
   constructor(router, http, api, LibroEntity) {
     this.router = router;
     this.httpClient = http;
     this.api = api;
     this.libroEntity = LibroEntity;
+    this.listaLibros = [];
     this.btnCreate = true;
     this.btnEdit = false;
   }
@@ -33,35 +32,34 @@ export class libro {
       }).catch(error => {
         console.log(error.message);
       });
-    console.log(this.listaLibros);
   }
 
   agregarDatos() {
     console.log(this.libroEntity);
     this.api.create(this.libroEntity).then(respuesta => {
-      this.mostrarDatos();
+      //this.listaLibros.push(this.libroEntity);
+      this.mostrarDatos()
       this.limpiarForm();
     });
   }
 
   eliminarDatos(entity) {
-    // console.log(this.listaLibros[0]);
-    this.api.delete(entity.id_Libro).then(respuesta => {
-      this.listaLibros.splice(this.listaLibros.indexOf(entity), 1)
-    });
+    // this.api.delete(entity.id_Libro).then(respuesta => {
+    //   this.listaLibros.splice(this.listaLibros.indexOf(entity), 1)
+    // });
+    
   }
 
   mostrarForm(entity){
     this.libroEntity = entity;
+    this.btnCreate = false;
+    this.btnEdit = true;
   }
 
   editarDatos(){
-    this.btnCreate = false;
-    this.btnEdit = true;
-    console.log(this.libroEntity);
     this.api.update(this.libroEntity).then(respuesta => {
-      this.listaLibros[this.listaLibros.indexOf(this.libroEntity)] = entity;
-      limpiarForm();
+      this.listaLibros[this.listaLibros.indexOf(this.libroEntity)] = this.libroEntity;
+      this.limpiarForm();
     })
   }
 
@@ -70,7 +68,5 @@ export class libro {
     this.btnCreate = true;
     this.btnEdit = false;
   }
-
-  
 
 }

@@ -17,5 +17,6 @@ npm i bootstrap  --save
 #aurelia-fetch-client - A more forward-looking HttpClient based on the Fetch specification. It supports all HTTP verbs and integrates with Service Workers, including Request/Response caching.
 npm i aurelia-fetch-client --save
 npm i aurelia-http-client --save
-#npm i whatwg-fetch --save
-npm i aurelia-configuration --save
+
+#Para mostrar dialogos por pantalla es necesario instalar este plugin
+npm install aurelia-dialog --save

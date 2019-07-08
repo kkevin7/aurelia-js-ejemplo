@@ -1,25 +1,25 @@
 import {inject} from 'aurelia-framework';
-import {Todo} from './todo';
+import {Tarea} from './tarea';
 
-@inject(Todo)
+@inject(Tarea)
 export class Ejemplo1 {
-  message = 'Agrega al a la lista!';
+  message = 'Lista de Tareas!';
 
   constructor(){
-    this.todo = new Todo('Limpiar la casa');
-    this.todoList = [];
-    this.todoList.push(new Todo('Lavar los trastes'));
-    this.todoList.push(new Todo('Sacar al perro'));
-    this.todoList.push(new Todo('Lavar la ropa'));
+    this.tarea = new Tarea('Limpiar la casa');
+    this.tareaList = [];
+    this.tareaList.push(new Tarea('Lavar los trastes'));
+    this.tareaList.push(new Tarea('Sacar al perro'));
+    this.tareaList.push(new Tarea('Lavar la ropa'));
     this.newItem = '';
   }
 
   agregarLista(){
-    this.todoList.push(new Todo(this.newItem));
+    this.tareaList.push(new Tarea(this.newItem));
     this.newItem = '';
   }
-  removeItem(todo){
-    this.todoList.splice(this.todoList.indexOf(todo), 1);
+  removeItem(tarea){
+    this.tareaList.splice(this.tareaList.indexOf(tarea), 1);
   }
 
 }

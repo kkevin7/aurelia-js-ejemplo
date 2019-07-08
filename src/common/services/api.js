@@ -44,7 +44,6 @@ export class API extends ConfigureApi {
   // }
 
   async update(datos) {
-    console.log(datos);
     const response = await this.httpClient.fetch('libro', {
       method: "PUT",
       body: json(datos)
@@ -61,6 +60,7 @@ export class API extends ConfigureApi {
     })
       .then(response => response.json())
       .then(data => {
+        
         console.log(data);
       });
   }
