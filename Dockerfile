@@ -6,7 +6,8 @@ RUN apt-get -y install git
 WORKDIR /usr/src/app
 RUN cd /usr/src/app
 RUN git clone https://github.com/kkevin7/aurelia-js-ejemplo.git
-RUN cd /aurelia-js-ejemplo/
+RUN chmod -R 777 /usr/src/app/aurelia-js-ejemplo/
+RUN cd /usr/src/app/aurelia-js-ejemplo/
 
 RUN npm i -g aurelia-cli
 RUN npm i
