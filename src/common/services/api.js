@@ -19,35 +19,16 @@ export class API extends ConfigureApi {
       .then(jsonData => { return jsonData });
   }
 
-  /* Realizará una peticion asincrona de una busqueba en base al ID dentro de una tabla */
-  async getById(id) {
-    return await this.httpClient.fetch("libro/findById/"+id)
-      .then(response => response.json())
-      .then(jsonData => { return jsonData });
-  }
-
   /* Realizaremos una petición la cual nos creara un registro */
   async create(datos) {
     const response = await this.httpClient.fetch('libro', {
         method: 'POST',
         body: json(datos)
     })
-      .then(data => {
-        console.log(data);
+      .then(respuesta => {
+        console.log(respuesta);
       }).catch(error => {
-        alert('Error al guardar el registro! == '+error);
-      });
-  }
-
-  /*Realizaramos una peticion asincrona para actualizar un registro de la tabla */
-  async update(datos) {
-    const response = await this.httpClient.fetch('libro', {
-      method: "PUT",
-      body: json(datos)
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
+        console.log(error);
       });
   }
 
@@ -55,6 +36,25 @@ export class API extends ConfigureApi {
   async delete(id) {
     const response = await this.httpClient.fetch('libro/' + id, {
       method: "DELETE"
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      });
+  }
+
+  /* Realizará una peticion asincrona de una busqueba en base al ID dentro de una tabla */
+  async getById(id) {
+    return await this.httpClient.fetch("libro/findById/"+id)
+      .then(response => response.json())
+      .then(jsonData => { return jsonData });
+  }
+
+  /*Realizaramos una peticion asincrona para actualizar un registro de la tabla */
+  async update(datos) {
+    const response = await this.httpClient.fetch('libro', {
+      method: "PUT",
+      body: json(datos)
     })
       .then(response => response.json())
       .then(data => {

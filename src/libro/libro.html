@@ -2,34 +2,38 @@
     <h2 class="text-center">${message}</h2>
 
     <div class="contenido div-center">
-    <form  >
+    <form >
         <input type="hidden" value.bind="libroEntity.id_Libro">
       <div class="form-group">
         <label for="titulo">Titulo</label>
+        <!-- Bindeo de variables a la vista -->
         <input type="text" name="titulo" value.bind="libroEntity.titulo" class="form-control"  required>
       </div>
       <div class="form-group">
         <label for="autor">Autor</label>
+        <!-- Bindeo de variables a la vista -->
         <input type="text" name="autor" value.bind="libroEntity.autor" class="form-control"  required>
       </div>
       <div class="form-group">
         <label for="categoria">Categoria</label>
+        <!-- Bindeo de variables a la vista -->
         <input type="text" name="categoria" value.bind="libroEntity.categoria" class="form-control"  required>
       </div>
       <div class="form-group">
         <label for="genero">Genero</label>
+        <!-- Bindeo de variables a la vista -->
         <input type="text" name="genero" value.bind="libroEntity.genero" class="form-control"  required>
       </div>
       <div class="form-group">
         <label for="estado">Estado</label>
-  
+        <!-- Bindeo de variables a la vista -->
         <select name="estado" value.bind="libroEntity.estado" class="form-control" required>
           <option value.bind="null">Elije una opcion...</option>
           <option value.bind="1">Activo</option>
           <option value.bind="0">Inactivo</option>
         </select>
-        <!-- <input type="text" name="estado" value.bind="libroEntity.estado" class="form-control" > -->
       </div>
+      <!-- Bindeo de las funciones a ejecutar en nuestra vista -->
       <button click.delegate="agregarDatos()" css="display: ${btnCreate ? 'inline-block' : 'none' }" class="btn btn-primary">Guardar</button>
       <button click.delegate="editarDatos()" css="display: ${btnEdit ? 'inline-block' : 'none' }" class="btn btn-success">Modificar</button>
       <button click.delegate="limpiarForm()" class="btn btn-secondary">Cancelar</button>
@@ -50,6 +54,7 @@
             </tr>
         </thead>
         <tbody>
+          <!-- repeat nos ayudara recorrer el arreglo parecido a la función foreach -->
             <tr repeat.for="valor of listaLibros">
                 <td >${valor.id_Libro}</td>
                 <td >${valor.titulo}</td>
