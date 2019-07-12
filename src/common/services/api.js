@@ -15,6 +15,12 @@ export class API extends ConfigureApi {
       .then(jsonData => { return jsonData });
   }
 
+  async getById(id) {
+    return await this.httpClient.fetch("libro/findById/"+id)
+      .then(response => response.json())
+      .then(jsonData => { return jsonData });
+  }
+
   async create(datos) {
     const response = await this.httpClient.fetch('libro', {
         method: 'POST',

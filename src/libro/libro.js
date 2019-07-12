@@ -46,9 +46,16 @@ export class libro {
   }
 
   mostrarForm(entity){
-    this.libroEntity = entity;
+    this.buscarRegistro(entity.id_Libro);
     this.btnCreate = false;
     this.btnEdit = true;
+  }
+
+  buscarRegistro(id){
+    this.api.getById(id)
+    .then(datos => {
+      this.libroEntity = datos;
+    });
   }
 
   editarDatos(){
