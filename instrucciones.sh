@@ -20,3 +20,6 @@ npm i aurelia-http-client --save
 
 #Para mostrar dialogos por pantalla es necesario instalar este plugin
 npm install aurelia-dialog --save
+
+#Para almacenar estados de los componentes
+npm  i aurelia-store --save

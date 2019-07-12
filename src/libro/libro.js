@@ -23,12 +23,9 @@ export class libro {
   }
 
   mostrarDatos() {
-    this.listaLibros = [];
     this.api.getAll()
       .then(datos => {
-        datos.forEach(el => {
-          this.listaLibros.push(new LibroEntity(el.id_Libro, el.titulo, el.autor, el.categoria, el.genero, el.estado));
-        });
+        this.listaLibros = datos;
       }).catch(error => {
         console.log(error.message);
       });
@@ -37,8 +34,7 @@ export class libro {
   agregarDatos() {
     console.log(this.libroEntity);
     this.api.create(this.libroEntity).then(respuesta => {
-      //this.listaLibros.push(this.libroEntity);
-      this.mostrarDatos()
+      this.mostrarDatos();
       this.limpiarForm();
     });
   }
@@ -57,7 +53,8 @@ export class libro {
 
   editarDatos(){
     this.api.update(this.libroEntity).then(respuesta => {
-      this.listaLibros[this.listaLibros.indexOf(this.libroEntity)] = this.libroEntity;
+      //this.listaLibros[this.listaLibros.indexOf(this.libroEntity)] = this.libroEntity;
+      this.mostrarDatos();
       this.limpiarForm();
     })
   }
