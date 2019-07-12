@@ -8,8 +8,7 @@ export class ConfigureApi {
     httpClient.configure(config => {
       config
         .useStandardConfiguration()
-        // .withBaseUrl('http://localhost:80/ci_rest_lib/api/')
-        .withBaseUrl('http://192.168.22.139:80/ci_rest_lib/api/')
+        .withBaseUrl('http://localhost:80/ci_rest_lib/api/')
         .withDefaults({
           headers: {
             'Accept': 'application/json',
